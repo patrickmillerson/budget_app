@@ -1,0 +1,45 @@
+{% extends 'budget_app/base.html' %}
+
+{% block content %}
+<h2>Income List</h2>
+
+<p>{{ selected_year }} Total Yearly Income: ${{ total_yearly_income|floatformat:2 }}</p>
+
+<!-- Dropdown to select a different year -->
+<form method="get" action="{% url 'income_list' %}" class="mb-3">
+    <label for="id_year">Select Year:</label>
+    <select name="year" id="id_year" class="form-select">
+        {% for year in available_years %}
+            <option value="{{ year|date:'Y' }}" {% if year|date:'Y' == selected_year %}selected{% endif %}>
+                {{ year|date:'Y' }}
+            </option>
+        {% endfor %}
+    </select>
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+
+<!-- Display incomes for the selected year -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Source</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for income in incomes_selected_year %}
+            <tr>
+                <td>${{ income.amount }}</td>
+                <td>{{ income.date }}</td>
+                <td>{{ income.source }}</td>
+                <td><a href="{% url 'edit_income' income.id %}">Edit</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'create_income' %}" class="btn btn-primary">Add Income</a>
+
+{% endblock %}

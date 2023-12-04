@@ -1,0 +1,12 @@
+{% extends 'budget_app/base.html' %}
+
+{% block content %}
+  <h2>Expense Categories</h2>
+  <ul class="list-group">
+    {% for category in categories %}
+      <li class="list-group-item">{{ category.name }}</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'create_expense_category' %}" class="btn btn-primary">Add Category</a>
+{% endblock %}
+

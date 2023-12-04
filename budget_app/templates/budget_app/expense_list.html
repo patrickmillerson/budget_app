@@ -2,7 +2,7 @@
 
 {% block content %}
   <h2>Expense List</h2>
-  <form method="get" action="{% url 'expense_list' %}">
+  {% comment %} <form method="get" action="{% url 'expense_list' %}">
     <label for="id_year">Year:</label>
     <select class="form-select" name="year" id="id_year">
         <option value="">All</option>
@@ -79,7 +79,7 @@
     // Call the function initially to populate the months based on the default year
     updateMonths();
   });
-</script>
+</script> {% endcomment %}
 
 {% endblock %}
 

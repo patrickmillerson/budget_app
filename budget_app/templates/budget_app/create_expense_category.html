@@ -2,7 +2,7 @@
 
 {% block content %}
   <h2>Create Expense Category</h2>
-  <form method="post">
+  {% comment %} <form method="post">
     {% csrf_token %}
     <div class="mb-3">
       <label for="id_name" class="form-label">Name:</label>
@@ -11,4 +11,5 @@
     <button type="submit" class="btn btn-success">Save Category</button>
   </form>
   <a href="{% url 'expense_category_list' %}" class="btn btn-secondary">Cancel</a>
+   {% endcomment %}
 {% endblock %}

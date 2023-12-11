@@ -13,7 +13,7 @@ class Income(models.Model):
 class ExpenseCategory(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-
+    
 
 class Expense(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

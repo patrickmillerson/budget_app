@@ -8,11 +8,12 @@ class Income(models.Model):
     source = models.CharField(max_length=255, blank=True, null=True)
     
     def __str__(self):
-        return self.amount
+        return str(self.amount)
 
 class ExpenseCategory(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
+
 
 class Expense(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

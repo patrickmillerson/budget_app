@@ -2,7 +2,7 @@
 
 {% block content %}
   <h2>Create Income</h2>
-  {% comment %} <form method="post">
+  <form method="post">
     {% csrf_token %}
     <div class="mb-3">
       <label for="id_amount" class="form-label">Amount:</label>
@@ -18,6 +18,6 @@
     </div>
     <button type="submit" class="btn btn-primary">Save Income</button>
   </form>
-  <a href="{% url 'income_list' %}" class="btn btn-secondary">Cancel</a> {% endcomment %}
+  <a href="{% url 'income_list' %}" class="btn btn-secondary">Cancel</a>
 
 {% endblock %}

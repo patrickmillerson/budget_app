@@ -3,7 +3,7 @@
 {% block content %}
 <h2>Income List</h2>
 
-{% comment %} <p>{{ selected_year }} Total Yearly Income: ${{ total_yearly_income|floatformat:2 }}</p>
+<p>{{ selected_year }} Total Yearly Income: ${{ total_yearly_income|floatformat:2 }}</p>
 
 <!-- Dropdown to select a different year -->
 <form method="get" action="{% url 'income_list' %}" class="mb-3">
@@ -40,6 +40,6 @@
     </tbody>
 </table>
 
-<a href="{% url 'create_income' %}" class="btn btn-primary">Add Income</a> {% endcomment %}
+<a href="{% url 'create_income' %}" class="btn btn-primary">Add Income</a>
 
 {% endblock %}
